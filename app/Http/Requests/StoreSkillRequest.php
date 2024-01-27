@@ -23,7 +23,7 @@ class StoreSkillRequest extends FormRequest
     {
         return [
             'name' => ['required', 'min:3', 'max:20'],
-            'slug' => ['required', 'unique:skills,slug,'. $this->skill->id]
+            'slug' => ['required', 'unique:skills,slug,'. ($this->skill ? $this->skill->id : null)]
         ];
     }
 }
